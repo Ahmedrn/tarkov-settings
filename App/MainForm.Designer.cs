@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.layoutTablePanel = new System.Windows.Forms.TableLayoutPanel();
             this.SideMenu = new System.Windows.Forms.ToolStrip();
-            this.MiscsButton = new System.Windows.Forms.ToolStripButton();
-            this.ColorButton = new System.Windows.Forms.ToolStripButton();
+            this.EftButton = new System.Windows.Forms.ToolStripButton();
+            this.ArenaButton = new System.Windows.Forms.ToolStripButton();
             this.ColorPanel = new System.Windows.Forms.Panel();
             this.minimizeStartCheckBox = new System.Windows.Forms.CheckBox();
             this.DisplayCombo = new System.Windows.Forms.ComboBox();
@@ -118,8 +118,8 @@
             this.SideMenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.SideMenu.ImageScalingSize = new System.Drawing.Size(48, 48);
             this.SideMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MiscsButton,
-            this.ColorButton});
+            this.EftButton,
+            this.ArenaButton});
             this.SideMenu.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
             this.SideMenu.Location = new System.Drawing.Point(0, 5);
             this.SideMenu.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
@@ -128,29 +128,29 @@
             this.SideMenu.TabIndex = 1;
             this.SideMenu.Text = "colorSettings";
             // 
-            // MiscsButton
+            // EftButton
             // 
-            this.MiscsButton.Enabled = false;
-            this.MiscsButton.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MiscsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.MiscsButton.Image = global::tarkov_settings.Properties.Resources.nikita;
-            this.MiscsButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.MiscsButton.Name = "MiscsButton";
-            this.MiscsButton.Size = new System.Drawing.Size(73, 74);
-            this.MiscsButton.Text = "Miscs";
-            this.MiscsButton.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
-            this.MiscsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.EftButton.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EftButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.EftButton.Image = global::tarkov_settings.Properties.Resources.eft;
+            this.EftButton.Name = "EftButton";
+            this.EftButton.Size = new System.Drawing.Size(74, 66);
+            this.EftButton.Text = "EFT";
+            this.EftButton.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.EftButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.EftButton.Click += new System.EventHandler(this.EftButton_Click);
             // 
-            // ColorButton
+            // ArenaButton
             // 
-            this.ColorButton.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ColorButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ColorButton.Image = global::tarkov_settings.Properties.Resources.nikita_rainbow;
-            this.ColorButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ColorButton.Name = "ColorButton";
-            this.ColorButton.Size = new System.Drawing.Size(73, 74);
-            this.ColorButton.Text = "Color";
-            this.ColorButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ArenaButton.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArenaButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ArenaButton.Image = global::tarkov_settings.Properties.Resources.arena1;
+            this.ArenaButton.Name = "ArenaButton";
+            this.ArenaButton.Size = new System.Drawing.Size(74, 66);
+            this.ArenaButton.Text = "Arena";
+            this.ArenaButton.TextDirection = System.Windows.Forms.ToolStripTextDirection.Horizontal;
+            this.ArenaButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.ArenaButton.Click += new System.EventHandler(this.ArenaButton_Click);
             // 
             // ColorPanel
             // 
@@ -171,7 +171,7 @@
             this.minimizeStartCheckBox.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.minimizeStartCheckBox.Location = new System.Drawing.Point(289, 332);
             this.minimizeStartCheckBox.Name = "minimizeStartCheckBox";
-            this.minimizeStartCheckBox.Size = new System.Drawing.Size(286, 26);
+            this.minimizeStartCheckBox.Size = new System.Drawing.Size(201, 18);
             this.minimizeStartCheckBox.TabIndex = 16;
             this.minimizeStartCheckBox.Text = "Minimize to Tray on Start";
             this.minimizeStartCheckBox.UseVisualStyleBackColor = false;
@@ -184,7 +184,7 @@
             this.DisplayCombo.FormattingEnabled = true;
             this.DisplayCombo.Location = new System.Drawing.Point(502, 328);
             this.DisplayCombo.Name = "DisplayCombo";
-            this.DisplayCombo.Size = new System.Drawing.Size(139, 30);
+            this.DisplayCombo.Size = new System.Drawing.Size(139, 22);
             this.DisplayCombo.TabIndex = 15;
             this.DisplayCombo.SelectedValueChanged += new System.EventHandler(this.DisplayCombo_SelectedValueChanged);
             // 
@@ -204,9 +204,9 @@
             this.DVLPanel.Controls.Add(this.DVLBar);
             this.DVLPanel.Controls.Add(this.DVLText);
             this.DVLPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DVLPanel.Location = new System.Drawing.Point(3, 25);
+            this.DVLPanel.Location = new System.Drawing.Point(3, 18);
             this.DVLPanel.Name = "DVLPanel";
-            this.DVLPanel.Size = new System.Drawing.Size(139, 279);
+            this.DVLPanel.Size = new System.Drawing.Size(139, 286);
             this.DVLPanel.TabIndex = 0;
             // 
             // DVLLabel
@@ -216,7 +216,7 @@
             this.DVLLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.DVLLabel.Location = new System.Drawing.Point(13, 11);
             this.DVLLabel.Name = "DVLLabel";
-            this.DVLLabel.Size = new System.Drawing.Size(170, 44);
+            this.DVLLabel.Size = new System.Drawing.Size(119, 28);
             this.DVLLabel.TabIndex = 10;
             this.DVLLabel.Text = "Digital Vibrance\r\n(Saturation)\r\n";
             this.DVLLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -229,7 +229,7 @@
             this.DVLBar.Maximum = 63;
             this.DVLBar.Name = "DVLBar";
             this.DVLBar.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.DVLBar.Size = new System.Drawing.Size(69, 184);
+            this.DVLBar.Size = new System.Drawing.Size(45, 184);
             this.DVLBar.TabIndex = 9;
             this.DVLBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.DVLBar.ValueChanged += new System.EventHandler(this.TrackBar_ValueChanged);
@@ -239,7 +239,7 @@
             this.DVLText.Location = new System.Drawing.Point(46, 232);
             this.DVLText.Name = "DVLText";
             this.DVLText.ReadOnly = true;
-            this.DVLText.Size = new System.Drawing.Size(41, 29);
+            this.DVLText.Size = new System.Drawing.Size(41, 22);
             this.DVLText.TabIndex = 11;
             this.DVLText.Text = "0";
             this.DVLText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -262,13 +262,13 @@
             this.colorTablePanel.Controls.Add(this.contrastPanel, 0, 1);
             this.colorTablePanel.Controls.Add(this.gammaPanel, 0, 2);
             this.colorTablePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.colorTablePanel.Location = new System.Drawing.Point(3, 25);
+            this.colorTablePanel.Location = new System.Drawing.Point(3, 18);
             this.colorTablePanel.Name = "colorTablePanel";
             this.colorTablePanel.RowCount = 3;
             this.colorTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.colorTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.colorTablePanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.colorTablePanel.Size = new System.Drawing.Size(484, 279);
+            this.colorTablePanel.Size = new System.Drawing.Size(484, 286);
             this.colorTablePanel.TabIndex = 1;
             // 
             // brightnessPanel
@@ -279,7 +279,7 @@
             this.brightnessPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.brightnessPanel.Location = new System.Drawing.Point(3, 3);
             this.brightnessPanel.Name = "brightnessPanel";
-            this.brightnessPanel.Size = new System.Drawing.Size(478, 87);
+            this.brightnessPanel.Size = new System.Drawing.Size(478, 89);
             this.brightnessPanel.TabIndex = 0;
             // 
             // BrightnessBar
@@ -288,7 +288,7 @@
             this.BrightnessBar.Maximum = 100;
             this.BrightnessBar.Minimum = -100;
             this.BrightnessBar.Name = "BrightnessBar";
-            this.BrightnessBar.Size = new System.Drawing.Size(397, 69);
+            this.BrightnessBar.Size = new System.Drawing.Size(397, 45);
             this.BrightnessBar.TabIndex = 18;
             this.BrightnessBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.BrightnessBar.Value = 50;
@@ -301,7 +301,7 @@
             this.BrightnessLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.BrightnessLabel.Location = new System.Drawing.Point(20, 10);
             this.BrightnessLabel.Name = "BrightnessLabel";
-            this.BrightnessLabel.Size = new System.Drawing.Size(110, 22);
+            this.BrightnessLabel.Size = new System.Drawing.Size(77, 14);
             this.BrightnessLabel.TabIndex = 21;
             this.BrightnessLabel.Text = "Brightness";
             this.brightnessToolTip.SetToolTip(this.BrightnessLabel, "Double-click to reset");
@@ -312,7 +312,7 @@
             this.BrightnessText.Location = new System.Drawing.Point(424, 27);
             this.BrightnessText.Name = "BrightnessText";
             this.BrightnessText.ReadOnly = true;
-            this.BrightnessText.Size = new System.Drawing.Size(41, 29);
+            this.BrightnessText.Size = new System.Drawing.Size(41, 22);
             this.BrightnessText.TabIndex = 24;
             this.BrightnessText.Text = "0.50";
             this.BrightnessText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -323,9 +323,9 @@
             this.contrastPanel.Controls.Add(this.ContrastText);
             this.contrastPanel.Controls.Add(this.ContrastLabel);
             this.contrastPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contrastPanel.Location = new System.Drawing.Point(3, 96);
+            this.contrastPanel.Location = new System.Drawing.Point(3, 98);
             this.contrastPanel.Name = "contrastPanel";
-            this.contrastPanel.Size = new System.Drawing.Size(478, 87);
+            this.contrastPanel.Size = new System.Drawing.Size(478, 89);
             this.contrastPanel.TabIndex = 1;
             // 
             // ContrastBar
@@ -334,7 +334,7 @@
             this.ContrastBar.Maximum = 100;
             this.ContrastBar.Minimum = -100;
             this.ContrastBar.Name = "ContrastBar";
-            this.ContrastBar.Size = new System.Drawing.Size(397, 69);
+            this.ContrastBar.Size = new System.Drawing.Size(397, 45);
             this.ContrastBar.TabIndex = 19;
             this.ContrastBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.ContrastBar.Value = 50;
@@ -345,7 +345,7 @@
             this.ContrastText.Location = new System.Drawing.Point(424, 39);
             this.ContrastText.Name = "ContrastText";
             this.ContrastText.ReadOnly = true;
-            this.ContrastText.Size = new System.Drawing.Size(41, 29);
+            this.ContrastText.Size = new System.Drawing.Size(41, 22);
             this.ContrastText.TabIndex = 25;
             this.ContrastText.Text = "0.50";
             this.ContrastText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -357,7 +357,7 @@
             this.ContrastLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ContrastLabel.Location = new System.Drawing.Point(20, 22);
             this.ContrastLabel.Name = "ContrastLabel";
-            this.ContrastLabel.Size = new System.Drawing.Size(90, 22);
+            this.ContrastLabel.Size = new System.Drawing.Size(63, 14);
             this.ContrastLabel.TabIndex = 22;
             this.ContrastLabel.Text = "Contrast";
             this.contrastToolTip.SetToolTip(this.ContrastLabel, "Double-click to reset");
@@ -369,9 +369,9 @@
             this.gammaPanel.Controls.Add(this.GammaBar);
             this.gammaPanel.Controls.Add(this.GammaLabel);
             this.gammaPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gammaPanel.Location = new System.Drawing.Point(3, 189);
+            this.gammaPanel.Location = new System.Drawing.Point(3, 193);
             this.gammaPanel.Name = "gammaPanel";
-            this.gammaPanel.Size = new System.Drawing.Size(478, 87);
+            this.gammaPanel.Size = new System.Drawing.Size(478, 90);
             this.gammaPanel.TabIndex = 2;
             // 
             // GammaText
@@ -379,7 +379,7 @@
             this.GammaText.Location = new System.Drawing.Point(424, 40);
             this.GammaText.Name = "GammaText";
             this.GammaText.ReadOnly = true;
-            this.GammaText.Size = new System.Drawing.Size(41, 29);
+            this.GammaText.Size = new System.Drawing.Size(41, 22);
             this.GammaText.TabIndex = 26;
             this.GammaText.Text = "1.00";
             this.GammaText.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -390,7 +390,7 @@
             this.GammaBar.Maximum = 280;
             this.GammaBar.Minimum = 40;
             this.GammaBar.Name = "GammaBar";
-            this.GammaBar.Size = new System.Drawing.Size(397, 69);
+            this.GammaBar.Size = new System.Drawing.Size(397, 45);
             this.GammaBar.TabIndex = 20;
             this.GammaBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.GammaBar.Value = 100;
@@ -403,7 +403,7 @@
             this.GammaLabel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.GammaLabel.Location = new System.Drawing.Point(20, 23);
             this.GammaLabel.Name = "GammaLabel";
-            this.GammaLabel.Size = new System.Drawing.Size(60, 22);
+            this.GammaLabel.Size = new System.Drawing.Size(42, 14);
             this.GammaLabel.TabIndex = 23;
             this.GammaLabel.Text = "Gamma";
             this.gammaToolTip.SetToolTip(this.GammaLabel, "Double-click to reset");
@@ -425,7 +425,7 @@
             this.showToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.trayMenuStrip.Name = "trayMenuStrip";
-            this.trayMenuStrip.Size = new System.Drawing.Size(138, 100);
+            this.trayMenuStrip.Size = new System.Drawing.Size(110, 70);
             // 
             // enableToolStripMenuItem
             // 
@@ -433,20 +433,20 @@
             this.enableToolStripMenuItem.CheckOnClick = true;
             this.enableToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.enableToolStripMenuItem.Name = "enableToolStripMenuItem";
-            this.enableToolStripMenuItem.Size = new System.Drawing.Size(137, 32);
+            this.enableToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.enableToolStripMenuItem.Text = "Enable";
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(137, 32);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.showToolStripMenuItem.Text = "Show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.ShowForm);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(137, 32);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitFormClicked);
             // 
@@ -519,8 +519,6 @@
         #endregion
         private System.Windows.Forms.TableLayoutPanel layoutTablePanel;
         private System.Windows.Forms.ToolStrip SideMenu;
-        private System.Windows.Forms.ToolStripButton MiscsButton;
-        private System.Windows.Forms.ToolStripButton ColorButton;
         private System.Windows.Forms.Panel ColorPanel;
         
         
@@ -555,6 +553,8 @@
         private System.Windows.Forms.ToolTip brightnessToolTip;
         private System.Windows.Forms.ToolTip contrastToolTip;
         private System.Windows.Forms.ToolTip gammaToolTip;
+        private System.Windows.Forms.ToolStripButton EftButton;
+        private System.Windows.Forms.ToolStripButton ArenaButton;
     }
 }
 

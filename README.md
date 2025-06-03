@@ -1,11 +1,21 @@
 # tarkov-settings
 ![screenshot](./1.png)
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fincheon-kim%2Ftarkov-settings&count_bg=%238C8C8C&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=true)](https://hits.seeyoufarm.com)
+## [Download](https://github.com/Ahmedrn/tarkov-settings/releases/latest)
 
-## [->**DOWNLOAD Latest**<-](https://github.com/incheon-kim/tarkov-settings/releases/latest)
+Automatically change color settings for [Escape from Tarkov](https://escapefromtarkov.com) and [Escape from Tarkov Arena](https://arena.tarkov.com/).
 
-Automatically change color settings for [Escape from Tarkov](https://escapefromtarkov.com).
+---
+
+## Credits
+This project is a fork of [incheon-kim/tarkov-settings](https://github.com/incheon-kim/tarkov-settings) by Michael Kim.
+
+---
+
+## Changelog / Differences from Upstream
+- Possibility to setup settings for both Escape From Tarkov and Escape from Tarkov Arena
+
+---
 
 ## How it works?
 - Changes Digital Vibrance value from Nvidia Settings using [NvAPIWrapper](https://github.com/falahati/NvAPIWrapper)
@@ -59,3 +69,8 @@ You can change any of the following color settings:
 - [ ] EFT setting modify (Framelimit or Graphic Settings)
 
 Thanks for your support!
+
+---
+
+## License
+This project is licensed under the [LGPL-2.1](./LICENSE). See the LICENSE file for details.

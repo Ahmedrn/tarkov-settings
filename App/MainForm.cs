@@ -11,7 +11,7 @@ namespace tarkov_settings
         private ProcessMonitor pMonitor = ProcessMonitor.Instance;
         private IGPU gpu = GPUDevice.Instance;
         private AppSetting appSetting;
-
+        private string selectedApp = "EscapeFromTarkov";
         private bool minimizeOnStart = false;
 
         public MainForm()
@@ -19,36 +19,29 @@ namespace tarkov_settings
             InitializeComponent();
 
             #region Load App Settings
-            // Load Settings
             appSetting = AppSetting.Load();
-
-            Brightness = appSetting.brightness;
-            Contrast = appSetting.contrast;
-            Gamma = appSetting.gamma;
-            DVL = appSetting.saturation;
             minimizeOnStart = appSetting.minimizeOnStart;
             this.minimizeStartCheckBox.Checked = minimizeOnStart;
+            LoadAppSettings(selectedApp);
             #endregion
             
             var version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
             this.Text = String.Format("Tarkov Settings {0}", version);
             _ = new UpdateNotifier(version);
 
-            // Saturation Initialize
             if (gpu.Vendor != GPUVendor.NVIDIA)
                 DVLGroupBox.Enabled = false;
 
             #region Initialize Display
-            // Initialize Display Dropdown
             foreach (string display in Display.displays)
             {
                 DisplayCombo.Items.Add(display);
             }
-            
             if(DisplayCombo.FindString(appSetting.display) != -1)
                 DisplayCombo.SelectedIndex = DisplayCombo.FindString(appSetting.display);
 
             Display.Primary = (string)DisplayCombo.SelectedItem;
+            ToggleAppButton("EscapeFromTarkov", this.EftButton, this.ArenaButton);
             #endregion
 
             // Initialize Process Monitor
@@ -58,6 +51,30 @@ namespace tarkov_settings
                 pMonitor.Add(pTarget.ToLower());
             }
             pMonitor.Init();
+        }
+
+        private void LoadAppSettings(string app)
+        {
+            if (appSetting.gameSettings.TryGetValue(app, out var setting))
+            {
+                Brightness = setting.brightness;
+                Contrast = setting.contrast;
+                Gamma = setting.gamma;
+                DVL = setting.saturation;
+            }
+        }
+
+        private void SaveAppSettings(string app)
+        {
+            if (!appSetting.gameSettings.ContainsKey(app))
+                appSetting.gameSettings[app] = new GameSetting();
+            var setting = appSetting.gameSettings[app];            
+            setting.brightness = Brightness;
+            setting.contrast = Contrast;
+            setting.gamma = Gamma;
+            setting.saturation = DVL;
+            appSetting.display = (string)DisplayCombo.SelectedItem;
+            appSetting.Save();
         }
 
         #region BCGS Getter/Setter
@@ -176,14 +193,9 @@ namespace tarkov_settings
 
         private void ExitFormClicked(object sender, EventArgs e)
         {
-            appSetting.brightness = Brightness;
-            appSetting.contrast = Contrast;
-            appSetting.gamma = Gamma;
-            appSetting.saturation = DVL;
-            appSetting.display = (string)DisplayCombo.SelectedItem;
+            SaveAppSettings(selectedApp);
             appSetting.minimizeOnStart = minimizeOnStart;
             appSetting.Save();
-
             Application.Exit();
         }
 
@@ -206,6 +218,25 @@ namespace tarkov_settings
         private void CheckOnMinimizeToTray(object sender, EventArgs e)
         {
             this.minimizeOnStart = this.minimizeStartCheckBox.Checked;
+        }
+
+        private void ToggleAppButton(string app, System.Windows.Forms.ToolStripButton activeButton, System.Windows.Forms.ToolStripButton inactiveButton)
+        {
+            SaveAppSettings(selectedApp);
+            this.selectedApp = app;
+            LoadAppSettings(selectedApp);
+            activeButton.BackColor = System.Drawing.Color.Gray;
+            inactiveButton.BackColor = System.Drawing.Color.Transparent;
+        }
+
+        private void EftButton_Click(object sender, EventArgs e)
+        {
+            ToggleAppButton("EscapeFromTarkov", this.EftButton, this.ArenaButton);
+        }
+
+        private void ArenaButton_Click(object sender, EventArgs e)
+        {
+            ToggleAppButton("EscapeFromTarkovArena", this.ArenaButton, this.EftButton);
         }
     }
 }

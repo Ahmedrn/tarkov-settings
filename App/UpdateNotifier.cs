@@ -8,10 +8,8 @@ namespace tarkov_settings
     {
         private Version current, latest;
 
-        // Utilize repository's file as version notifier
-        // I know it sounds very dangerous. but i am broke as hell.
-        private string downloadUrl = @"https://github.com/incheon-kim/tarkov-settings/releases/latest";
-        private string checkUrl = @"https://raw.githubusercontent.com/incheon-kim/tarkov-settings/main/version";
+        private string downloadUrl = @"https://github.com/Ahmedrn/tarkov-settings/releases/latest";
+        private string checkUrl = @"https://raw.githubusercontent.com/Ahmedrn/tarkov-settings/main/version";
         public UpdateNotifier(Version current)
         {
             InitializeComponent();
@@ -44,7 +42,7 @@ namespace tarkov_settings
                     UpdateNotifyLabel.Text = "Update Check Failure\nPlease Visit Github Repository";
                     latestLabel.Visible = LatestVersionLabel.Visible = false;
                     UpdateButton.Text = "Visit";
-                    downloadUrl = @"https://github.com/incheon-kim/tarkov-settings";
+                    downloadUrl = @"https://github.com/Ahmedrn/tarkov-settings";
                     this.ShowDialog();
                 }
             }
