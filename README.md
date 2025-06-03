@@ -12,7 +12,7 @@ This project is a fork of [incheon-kim/tarkov-settings](https://github.com/inche
 
 ---
 
-## Changelog / Differences from Upstream
+## Changelog
 - Possibility to setup settings for both Escape From Tarkov and Escape from Tarkov Arena
 
 ---

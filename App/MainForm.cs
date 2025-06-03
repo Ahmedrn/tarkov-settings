@@ -102,14 +102,14 @@ namespace tarkov_settings
             set => DVLBar.Value = value;
         }
 
-        public (double, double, double, int) GetColorValue()
+        public (double, double, double, int) GetColorValue(string app)
         {
-            return (
-                BrightnessBar.Value / 100.0,
-                ContrastBar.Value / 100.0,
-                GammaBar.Value / 100.0,
-                DVLBar.Value
-                );
+            if (appSetting.gameSettings.TryGetValue(app, out var setting))
+            {
+                return (setting.brightness, setting.contrast, setting.gamma, setting.saturation);
+            }
+            // Return default values if not found
+            return (0.5, 0.5, 1.0, 0);
         }
         #endregion
 
